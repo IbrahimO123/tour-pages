@@ -20,11 +20,9 @@ function TourPage() {
             .then(
                 (res) => {
                     setTours(res.data)
+                    setIsLoading(false)
                 })
-                .then(
-                    () => {setIsLoading(false)
-                    })
-            .catch(
+                .catch(
                 (err) => {
                     console.log(`${err}: Ooops there is an error somewhere !!!`)
                 }
@@ -48,11 +46,11 @@ function TourPage() {
 
         <>{ isLoading?<Loading/> :
         tours.length > 0 ?
-          <div className='container w-75' >
+          <div className='section main' >
               <Header/>
                     {
                         tours.map(tour => 
-                        <div className='container mb-5' key={tour.id}>
+                        <div className='single-tour mb-5' key={tour.id}>
                             <div className='card'>
                              <img className='rounded-top img img-fluid img-top' src={tour.image} alt={tour.name} title={tour.name} ></img>
         
@@ -74,7 +72,7 @@ function TourPage() {
                         )
                     }   
           </div> : 
-          <div className='container w-75'> 
+          <div className='container w-100 w-md-75'> 
             <div className='mb-3 pb-2 mt-5 text-center' >
                     <div className='text-center h3' >No More Tours Remaining</div>
                     <a className='btn' href='/'>Refresh</a>
