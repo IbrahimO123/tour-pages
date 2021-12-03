@@ -55,9 +55,9 @@ function TourPage() {
                              <img className='rounded-top img img-fluid img-top' src={tour.image} alt={tour.name} title={tour.name} ></img>
         
                                     <div className='card-body' >
-                                        <div className='d-flex justify-content-between align-content-between pb-3'>
-                                                <span className='card-title h5' >{tour.name} </span>
-                                                <span className='tour-price' > ${tour.price} </span>
+                                        <div className='pb-3 tour-info'>
+                                                <h4>{tour.name} </h4>
+                                                <h4 className='tour-price' > ${tour.price} </h4>
                                         </div>
                                         <div className='tour-info d-inline' >
                                         {toggle?tour.info.slice(0,200)+'...': tour.info }
